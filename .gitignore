@@ -1,4 +1,3 @@
 node_modules/
-.coffee
 .DS_Store
-lib/
+npm-debug.log

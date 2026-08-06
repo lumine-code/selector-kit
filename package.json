@@ -1,38 +1,42 @@
 {
-  "name": "selector-kit",
-  "version": "0.0.0",
-  "description": "A barebones toolkit for CSS selector parsing and matching.",
-  "main": "./lib/selector-kit",
+  "name": "@lumine-code/selector-kit",
+  "version": "1.0.0",
+  "description": "Parses CSS-style scope selectors and matches them against scope chains.",
+  "license": "MIT",
+  "main": "./src/selector-kit.js",
   "scripts": {
-    "prepublish": "grunt clean lint coffee",
-    "test": "grunt test"
+    "test": "jasmine",
+    "lint": "eslint . --max-warnings 0 && prettier --check .",
+    "format": "prettier --write ."
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/atom/selector-kit.git"
+  "repository": "https://github.com/lumine-code/selector-kit",
+  "bugs": "https://github.com/lumine-code/selector-kit/issues",
+  "homepage": "https://github.com/lumine-code/selector-kit/",
+  "author": "lumine-code",
+  "publishConfig": {
+    "access": "public"
   },
-  "bugs": {
-    "url": "https://github.com/atom/selector-kit/issues"
+  "engines": {
+    "node": ">=24"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/atom/selector-kit/raw/master/LICENSE.md"
-    }
+  "files": [
+    "src"
   ],
-  "dependencies": {
-    "atom-slick": "^2"
-  },
+  "keywords": [
+    "selector-kit",
+    "scope-chain",
+    "specificity",
+    "css-selector",
+    "tokenization",
+    "lumine"
+  ],
   "devDependencies": {
-    "coffee-script": "^1.7.0",
-    "jasmine-focused": "^1.0.4",
-    "grunt-contrib-coffee": "^0.9.0",
-    "grunt-cli": "^0.1.8",
-    "grunt": "^0.4.1",
-    "grunt-shell": "^0.2.2",
-    "grunt-coffeelint": "^0.0.6",
-    "rimraf": "^2.2.2",
-    "coffee-cache": "^0.2.0",
-    "temp": "^0.6.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^18.2.2",
+    "globals": "^17.9.0",
+    "jasmine": "^6.3.0",
+    "prettier": "^3.9.6"
   }
 }
