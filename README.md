@@ -2,12 +2,7 @@
 
 Parses CSS-style scope selectors and matches them against scope chains.
 
-The editor describes a position in a buffer as a scope chain — an array of
-TextMate scope names such as `['source.js', 'string.quoted']` — and packages
-target those positions with selectors that look like CSS: `.source.js .string`.
-This library parses one and answers whether it matches the other, and how
-specific the match was. It is what decides which autocomplete provider answers
-at the cursor and which scoped setting wins.
+The editor describes a position in a buffer as a scope chain — an array of TextMate scope names such as `['source.js', 'string.quoted']` — and packages target those positions with selectors that look like CSS: `.source.js .string`. This library parses one and answers whether it matches the other, and how specific the match was. It is what decides which autocomplete provider answers at the cursor and which scoped setting wins.
 
 ## Features
 
@@ -52,17 +47,14 @@ parse(".source.js")[0][0].classList; // ['js', 'source']
 
 ## Specificity
 
-The score is **not** CSS specificity, and the difference is deliberate — the
-editor's ordering has always been built on it:
+The score is **not** CSS specificity, and the difference is deliberate — the editor's ordering has always been built on it:
 
 - classes and attributes weigh the same,
 - an `#id` is parsed but never contributes,
 - every part contributes 1 for its tag,
-- the result is `classes_and_attributes * 10 + parts`, in base 10, so ten
-  classes carry into the column an id would otherwise occupy.
+- the result is `classes_and_attributes * 10 + parts`, in base 10, so ten classes carry into the column an id would otherwise occupy.
 
-Changing the formula reorders which provider answers and which setting wins, so
-it is a compatibility surface rather than an implementation detail.
+Changing the formula reorders which provider answers and which setting wins, so it is a compatibility surface rather than an implementation detail.
 
 ## Contributing
 
