@@ -144,8 +144,11 @@ describe("Selector", function () {
 
     it("honours an explicit priority", function () {
       const low = Selector.create(".p", { priority: 0 })[0];
+      for (let i = 0; i < 2000; i++) S(`.intervening-${i}`);
       const high = Selector.create(".p", { priority: 1000 })[0];
-      expect(high.index).toBeGreaterThan(low.index);
+      const laterLow = Selector.create(".p", { priority: 0 })[0];
+      expect(high.compare(low)).toBeLessThan(0);
+      expect(high.compare(laterLow)).toBeLessThan(0);
     });
   });
 

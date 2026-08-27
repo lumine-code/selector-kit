@@ -49,9 +49,9 @@ module.exports = class Selector {
 
   constructor(selector, options) {
     this.selector = selector;
-    const priority = options?.priority ?? 0;
+    this.priority = options?.priority ?? 0;
     this.specificity = this.calculateSpecificity();
-    this.index = priority + indexCounter++;
+    this.index = indexCounter++;
   }
 
   // Public: Does this selector match the given scope chain?
@@ -123,10 +123,9 @@ module.exports = class Selector {
   // Public: Order two selectors, most specific first, breaking ties by
   // insertion order so a later registration wins.
   compare(other) {
-    if (other.specificity === this.specificity) {
-      return other.index - this.index;
-    }
-    return other.specificity - this.specificity;
+    if (other.specificity !== this.specificity) return other.specificity - this.specificity;
+    if (other.priority !== this.priority) return other.priority - this.priority;
+    return other.index - this.index;
   }
 
   isEqual(other) {
