@@ -4,7 +4,6 @@
   "helpers": [],
   "requires": [],
   "env": {
-    "forbidDuplicateNames": false,
     "stopSpecOnExpectationFailure": false,
     "random": false
   }
