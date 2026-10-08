@@ -2,6 +2,8 @@
 
 Parses CSS-style scope selectors and matches them against scope chains.
 
+Fork of [pulsar-edit/selector-kit](https://github.com/pulsar-edit/selector-kit).
+
 The editor describes a position in a buffer as a scope chain — an array of TextMate scope names such as `['source.js', 'string.quoted']` — and packages target those positions with selectors that look like CSS: `.source.js .string`. This library parses one and answers whether it matches the other, and how specific the match was. It is what decides which autocomplete provider answers at the cursor and which scoped setting wins.
 
 ## Features
