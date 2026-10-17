@@ -20,7 +20,8 @@
     "node": ">=24"
   },
   "files": [
-    "src"
+    "src",
+    "THIRD_PARTY_NOTICES"
   ],
   "keywords": [
     "selector-kit",
